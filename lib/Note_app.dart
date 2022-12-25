@@ -11,3 +11,11 @@ class NoteApp extends StatelessWidget {
     );
   }
 }
+
+// MultiProvider(
+//       providers: [
+//         ChangeNotifierProvider(
+//           create: (context) => NoteProvider(),
+//         ),
+//       ],
+//       child: const
