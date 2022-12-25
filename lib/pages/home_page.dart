@@ -1,4 +1,9 @@
+import 'package:counter_app/controller/note_controller.dart';
+import 'package:counter_app/models/models.dart';
+import 'package:counter_app/pages/pages.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,6 +15,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    NoteProvider noteProvider = Provider.of<NoteProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text("My Notes"),
@@ -20,13 +26,13 @@ class _HomePageState extends State<HomePage> {
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2),
-          itemCount: 5,
+          itemCount: noteProvider.notes.length,
           itemBuilder: (context, index) {
+            Note currentNote = noteProvider.notes[index];
             return Container(
               margin: const EdgeInsets.all(5),
               padding: const EdgeInsets.all(10.0),
               decoration: BoxDecoration(
-                color: Colors.amber[50],
                 border: Border.all(
                   color: Colors.black12,
                   width: 1,
@@ -37,7 +43,7 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "title",
+                    currentNote.title,
                     style: TextStyle(
                       color: Colors.grey[600],
                       fontSize: 18,
@@ -46,14 +52,13 @@ class _HomePageState extends State<HomePage> {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  Divider(
-                    color: Colors.purple[200],
+                  const Divider(
                     endIndent: 30,
                     thickness: .7,
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    "content",
+                    currentNote.content,
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.grey[500],
@@ -68,7 +73,14 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            CupertinoPageRoute(
+                fullscreenDialog: true,
+                builder: (context) => const AddNewNote()),
+          );
+        },
         child: const Icon(Icons.add),
       ),
     );
