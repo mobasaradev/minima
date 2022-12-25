@@ -1,3 +1,4 @@
+import 'package:counter_app/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class NoteApp extends StatelessWidget {
@@ -8,14 +9,8 @@ class NoteApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Notes App',
+      home: HomePage(),
     );
   }
 }
 
-// MultiProvider(
-//       providers: [
-//         ChangeNotifierProvider(
-//           create: (context) => NoteProvider(),
-//         ),
-//       ],
-//       child: const
