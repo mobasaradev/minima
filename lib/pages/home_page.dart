@@ -1,9 +1,11 @@
 import 'package:counter_app/controller/note_controller.dart';
 import 'package:counter_app/models/models.dart';
 import 'package:counter_app/pages/pages.dart';
+import 'package:counter_app/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,6 +22,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("My Notes"),
         centerTitle: true,
+        backgroundColor: NoteColor.primaryColor,
         elevation: 0,
       ),
       body: SafeArea(
@@ -33,6 +36,7 @@ class _HomePageState extends State<HomePage> {
               margin: const EdgeInsets.all(5),
               padding: const EdgeInsets.all(10.0),
               decoration: BoxDecoration(
+                color: NoteColor.secondaryColor.withOpacity(.5),
                 border: Border.all(
                   color: Colors.black12,
                   width: 1,
@@ -53,6 +57,7 @@ class _HomePageState extends State<HomePage> {
                     overflow: TextOverflow.ellipsis,
                   ),
                   const Divider(
+                    color: NoteColor.purpleColor,
                     endIndent: 30,
                     thickness: .7,
                   ),
@@ -81,6 +86,7 @@ class _HomePageState extends State<HomePage> {
                 builder: (context) => const AddNewNote()),
           );
         },
+        backgroundColor: NoteColor.primaryColor,
         child: const Icon(Icons.add),
       ),
     );

@@ -1,5 +1,7 @@
+
 import 'package:counter_app/controller/note_controller.dart';
-import 'package:counter_app/models/note.dart';
+import 'package:counter_app/models/models.dart';
+import 'package:counter_app/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
@@ -34,6 +36,7 @@ class _AddNewNoteState extends State<AddNewNote> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: NoteColor.primaryColor,
         elevation: 0,
         actions: [
           IconButton(
