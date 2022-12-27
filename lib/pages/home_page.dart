@@ -1,6 +1,7 @@
 import 'package:counter_app/controller/note_controller.dart';
 import 'package:counter_app/pages/pages.dart';
 import 'package:counter_app/utils/utils.dart';
+import 'package:counter_app/widgets/app_bar.dart';
 import 'package:counter_app/widgets/note_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,32 +21,7 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: NoteColor.backGroundColor,
-        appBar: AppBar(
-          iconTheme: const IconThemeData(
-            color: NoteColor.secondaryTextColor,
-          ),
-          centerTitle: true,
-          title: const Text(
-            "My Notes",
-            style: TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.w500,
-              color: NoteColor.primaryTextColor,
-            ),
-          ),
-          backgroundColor: NoteColor.transparentColor,
-          elevation: 0,
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.search),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.account_circle),
-            ),
-          ],
-        ),
+        appBar: const NoteAppBar(),
         body: SizedBox(
           child: (noteProvider.notes.isNotEmpty)
               ? const NoteCard()
