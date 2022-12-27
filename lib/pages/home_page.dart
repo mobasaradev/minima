@@ -27,12 +27,12 @@ class _HomePageState extends State<HomePage> {
           children: [
             const CustomTopBar(),
             const SizedBox(height: 10),
-            SizedBox(
-              width: double.infinity,
-              height: double.infinity,
-              child: (noteProvider.notes.isNotEmpty)
-                  ? const NoteCard()
-                  : const EmptyBackGroundImage(),
+            Expanded(
+              child: Container(
+                child: (noteProvider.notes.isNotEmpty)
+                    ? const NoteCard()
+                    : const EmptyBackGroundImage(),
+              ),
             )
           ],
         ),
@@ -55,12 +55,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-
-
-
-// body: SizedBox(
-//           child: (noteProvider.notes.isNotEmpty)
-//               ? const NoteCard()
-//               : const EmptyBackGroundImage(),
-//         ),
