@@ -53,7 +53,6 @@ class NoteCard extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text(
                   currentNote.content,
-                  textAlign: TextAlign.justify,
                   style: const TextStyle(
                     fontSize: 20,
                     color: NoteColor.secondaryTextColor,

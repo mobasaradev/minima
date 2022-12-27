@@ -1,8 +1,7 @@
 import 'package:counter_app/controller/note_controller.dart';
 import 'package:counter_app/pages/pages.dart';
 import 'package:counter_app/utils/utils.dart';
-import 'package:counter_app/widgets/app_bar.dart';
-import 'package:counter_app/widgets/note_card.dart';
+import 'package:counter_app/widgets/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -21,13 +20,21 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: NoteColor.backGroundColor,
+        // custom app bar
         appBar: const NoteAppBar(),
-        body: SizedBox(
-          child: (noteProvider.notes.isNotEmpty)
-              ? const NoteCard()
-              : const Center(
-                  child: Text("Create your new notes"),
-                ),
+        //body
+        body: Column(
+          children: [
+            const CustomTopBar(),
+            const SizedBox(height: 10),
+            SizedBox(
+              width: double.infinity,
+              height: double.infinity,
+              child: (noteProvider.notes.isNotEmpty)
+                  ? const NoteCard()
+                  : const EmptyBackGroundImage(),
+            )
+          ],
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
@@ -41,10 +48,19 @@ class _HomePageState extends State<HomePage> {
               ),
             );
           },
-          backgroundColor: NoteColor.primaryColor,
+          backgroundColor: NoteColor.purpleColor,
           child: const Icon(Icons.add),
         ),
       ),
     );
   }
 }
+
+
+
+
+// body: SizedBox(
+//           child: (noteProvider.notes.isNotEmpty)
+//               ? const NoteCard()
+//               : const EmptyBackGroundImage(),
+//         ),
