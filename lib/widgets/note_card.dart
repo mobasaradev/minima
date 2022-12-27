@@ -32,7 +32,12 @@ class NoteCard extends StatelessWidget {
           },
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            padding: const EdgeInsets.only(
+              top: 10,
+              left: 10,
+              right: 10,
+              bottom: 0,
+            ),
             decoration: BoxDecoration(
               color: NoteColor.secondaryBackGroundColor,
               borderRadius: BorderRadius.circular(6),
@@ -44,7 +49,7 @@ class NoteCard extends StatelessWidget {
                   currentNote.title,
                   style: const TextStyle(
                     color: NoteColor.primaryTextColor,
-                    fontSize: 24,
+                    fontSize: 20,
                     fontWeight: FontWeight.w500,
                   ),
                   maxLines: 1,
@@ -54,14 +59,11 @@ class NoteCard extends StatelessWidget {
                 Text(
                   currentNote.content,
                   style: const TextStyle(
-                    fontSize: 20,
+                    fontSize: 18,
                     color: NoteColor.secondaryTextColor,
                   ),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                ),
-                const SizedBox(
-                  height: 10,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

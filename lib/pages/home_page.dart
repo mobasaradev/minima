@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         backgroundColor: NoteColor.backGroundColor,
         // custom app bar
-        appBar: const NoteAppBar(),
+        appBar: const CustomAppBar(),
         //body
         body: Column(
           children: [

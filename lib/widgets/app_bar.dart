@@ -1,8 +1,8 @@
 import 'package:counter_app/utils/utils.dart';
 import 'package:flutter/material.dart';
 
-class NoteAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const NoteAppBar({super.key});
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const CustomAppBar({super.key});
 
   @override
   Size get preferredSize => const Size.fromHeight(100);
