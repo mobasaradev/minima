@@ -1,4 +1,3 @@
-
 import 'package:counter_app/controller/note_controller.dart';
 import 'package:counter_app/models/models.dart';
 import 'package:counter_app/utils/utils.dart';
@@ -7,7 +6,9 @@ import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 
 class AddNewNote extends StatefulWidget {
-  const AddNewNote({super.key});
+  const AddNewNote({super.key, required this.isUpdate, this.note});
+  final bool isUpdate;
+  final Note? note;
 
   @override
   State<AddNewNote> createState() => _AddNewNoteState();
@@ -23,25 +24,70 @@ class _AddNewNoteState extends State<AddNewNote> {
   void addNewNote() {
     Note newNote = Note(
       id: const Uuid().v1(),
-      userid: "mac",
+      userid: "dev",
       title: titleController.text,
       content: noteController.text,
       dateadded: DateTime.now(),
     );
-    Provider.of<NoteProvider>(context, listen: false).addNote(newNote);
+
+    context.read<NoteProvider>().addNote(newNote);
+    // listen: false for context.read
+    // listen: true for context.watch
+    //Provider.of<NoteProvider>(context, listen: false).addNote(newNote);
     Navigator.pop(context);
+  }
+
+  void updateNote() {
+    widget.note!.title = titleController.text;
+    widget.note!.content = noteController.text;
+    Provider.of<NoteProvider>(
+      context,
+      listen: false,
+    ).updateNote(widget.note!);
+    Navigator.pop(context);
+  }
+
+  //for update note
+  @override
+  void initState() {
+    super.initState();
+    if (widget.isUpdate) {
+      titleController.text = widget.note!.title;
+      noteController.text = widget.note!.content;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: NoteColor.secondaryBackGroundColor,
       appBar: AppBar(
-        backgroundColor: NoteColor.primaryColor,
-        elevation: 0,
+        iconTheme: const IconThemeData(
+          color: NoteColor.secondaryTextColor,
+        ),
+        backgroundColor: NoteColor.secondaryBackGroundColor,
+        shadowColor: NoteColor.secondaryBackGroundColor,
         actions: [
           IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.keyboard_voice,
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.image,
+            ),
+          ),
+          IconButton(
             onPressed: () {
-              addNewNote();
+              //is update note
+              if (widget.isUpdate) {
+                updateNote();
+              } else {
+                addNewNote();
+              }
             },
             icon: const Icon(
               Icons.check,
@@ -60,7 +106,7 @@ class _AddNewNoteState extends State<AddNewNote> {
               // title
               TextField(
                 controller: titleController,
-                autofocus: true,
+                autofocus: (widget.isUpdate == true) ? false : true,
                 onSubmitted: (value) {
                   if (value != "") {
                     noteFocus.requestFocus();

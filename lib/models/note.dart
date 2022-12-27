@@ -9,8 +9,8 @@ class Note {
 
   final String id;
   final String userid;
-  final String title;
-  final String content;
+  String title;
+  String content;
   final DateTime? dateadded;
 
   factory Note.fromMap(Map<String, dynamic> map) => Note(
