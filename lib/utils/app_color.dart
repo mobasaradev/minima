@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
-class NoteColor {
-  NoteColor._();
-  static const primaryColor = Color(0xFFFD8A8A);
-  static const secondaryColor = Color(0xFFF1F7B5);
-  static const skyColor = Color(0xFFA8D1D1);
-  static const purpleColor = Color(0xFF9EA1D4);
-  static const backGroundColor = Color(0xFFe6e6e6);
-  static const secondaryBackGroundColor = Color(0xFFFFFFFF);
-  static const primaryTextColor = Color(0xFF404040);
-  static const secondaryTextColor = Color(0xFF919191);
-  static const thirdTextColor = Color(0xFFADADAD);
-  static const transparentColor = Color(0x00000000);
+class AppColors {
+  AppColors._();
+  static const primaryBackGround = Color(0xFFe6e6e6);
+  static const primaryBackGroundDark = Color(0xFF000000);
+  static const secondaryBackGround = Color(0xFFFFFFFF);
+  static const secondaryBackGroundDark = Color(0xFF242323);
+  static const primaryText = Color(0xFF060606);
+  static const primaryTextDark = Color(0xFFFFFFFF);
+  static const secondaryText = Color(0xFF505050);
+  static const secondaryTextDark = Color(0xFFC3C3C3);
+  static const primaryIcon = Color(0xFFEE4F00);
+  static const primaryIconDark = Color(0xFFEE4F00);
+  static const primaryIconBackGroundDark = Color(0xFF3B3B3B);
+  static const secondaryIcon = Color(0xFF505050);
+  static const secondaryIconDark = Color(0xFFC3C3C3);
+  static const transparent = Color(0x00000000);
 }

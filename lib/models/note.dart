@@ -1,30 +1,54 @@
-class Note {
-  Note({
+import 'package:equatable/equatable.dart';
+
+class Note extends Equatable {
+  const Note({
     required this.id,
-    required this.userid,
     required this.title,
     required this.content,
-    this.dateadded,
+    required this.dateAdded,
   });
 
   final String id;
-  final String userid;
-  String title;
-  String content;
-  final DateTime? dateadded;
+  final String title;
+  final String content;
+  final DateTime? dateAdded;
 
   factory Note.fromMap(Map<String, dynamic> map) => Note(
         id: map['id'],
-        userid: map['userid'],
         title: map['title'],
         content: map['content'],
-        dateadded: DateTime.tryParse(map["dateadded"]),
+        dateAdded: DateTime.tryParse(map["dateAdded"]),
       );
+
   Map<String, dynamic> toMap() => {
         'id': id,
-        'userid': userid,
         'title': title,
         'content': content,
-        'dateadded': dateadded!.toIso8601String(),
+        'dateAdded': dateAdded?.toIso8601String(),
       };
+
+  @override
+  List<Object?> get props => [
+        id,
+        title,
+        content,
+        dateAdded,
+      ];
+
+  @override
+  bool get stringify => true;
+
+  Note copyWith({
+    String? id,
+    String? title,
+    String? content,
+    DateTime? dateAdded,
+  }) {
+    return Note(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      content: content ?? this.content,
+      dateAdded: dateAdded ?? this.dateAdded,
+    );
+  }
 }
