@@ -74,5 +74,6 @@ class AppThemes {
           backgroundColor: AppColors.primaryIconBackGroundDark,
           foregroundColor: AppColors.primaryIcon,
         ),
+        
       );
 }

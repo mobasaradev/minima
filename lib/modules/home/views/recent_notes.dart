@@ -17,20 +17,21 @@ class RecentNotes extends StatelessWidget {
         return ListView.builder(
           itemCount: notes.isEmpty ? 0 : (notes.length >= 5 ? 5 : notes.length),
           itemBuilder: (context, index) {
+            final note = notes[index];
             final date =
                 "${notes[index].dateAdded?.hour}:${notes[index].dateAdded?.minute}";
             return NoteCard(
-              title: notes[index].title,
-              content: notes[index].content,
+              title: note.title,
+              content: note.content,
               time: date,
               removeOnPress: () {
-                noteCubit.remove(notes[index].id);
+                noteCubit.remove(note.id);
               },
               editOnTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const NewNote(),
+                    builder: (context) => NewNote(note: note),
                   ),
                 );
               },

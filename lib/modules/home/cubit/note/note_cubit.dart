@@ -20,12 +20,15 @@ class NoteCubit extends HydratedCubit<NoteState> {
     emit(state.copyWith(notes: notes));
   }
 
-  /// Edit note
-  void edit(Note newNote) {
+  /// Update note
+  void update(Note newNote) {
     if (state.notes.isNotEmpty) {
       final notes = [...state.notes];
-      final note = notes.firstWhere((e) => e.id == newNote.id);
-      final index = notes.indexOf(note);
+      // firstWhere matching the id between list of notes and the note i wanna update.
+      final fetchedNote =
+          notes.firstWhere((currentNote) => currentNote.id == newNote.id);
+      // after updating note
+      final index = notes.indexOf(fetchedNote);
       notes[index] = newNote;
       emit(state.copyWith(notes: notes));
     }

@@ -17,19 +17,21 @@ class AllNotes extends StatelessWidget {
         return ListView.builder(
           itemCount: notes.length,
           itemBuilder: (context, index) {
-            final date =
-                "${notes[index].dateAdded?.hour}:${notes[index].dateAdded?.minute}";
+            final note = notes[index];
+            final date = "${note.dateAdded?.hour}:${note.dateAdded?.minute}";
             return NoteCard(
-              title: notes[index].title,
-              content: notes[index].content,
+              title: note.title,
+              content: note.content,
               time: date,
               removeOnPress: () {
-                noteCubit.remove(notes[index].id);
+                noteCubit.remove(note.id);
               },
               editOnTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const NewNote()),
+                  MaterialPageRoute(
+                    builder: (context) => NewNote(note: note),
+                  ),
                 );
               },
             );

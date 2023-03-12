@@ -19,6 +19,15 @@ class _NewNoteState extends State<NewNote> {
   final FocusNode _noteFocus = FocusNode();
 
   @override
+  void initState() {
+    super.initState();
+    if (widget.note != null) {
+      _titleTextEditingController.text = widget.note?.title ?? "";
+      _contentTextEditingController.text = widget.note?.content ?? "";
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final noteCubit = context.read<NoteCubit>();
     return Scaffold(
@@ -48,13 +57,14 @@ class _NewNoteState extends State<NewNote> {
           IconButton(
             onPressed: () {
               final note = Note(
-                  id: const Uuid().v4(),
-                  title: _titleTextEditingController.text,
-                  content: _contentTextEditingController.text,
-                  dateAdded: DateTime.now());
+                id: const Uuid().v4(),
+                title: _titleTextEditingController.text,
+                content: _contentTextEditingController.text,
+                dateAdded: DateTime.now(),
+              );
               widget.note == null
                   ? noteCubit.add(note)
-                  : noteCubit.edit(note.copyWith(id: widget.note?.id));
+                  : noteCubit.update(note.copyWith(id: widget.note?.id));
               Navigator.pop(context);
             },
             icon: const Icon(

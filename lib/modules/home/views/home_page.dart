@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class MyNotePage extends StatelessWidget {
   MyNotePage({super.key});
-  final Map<String, Widget> _viewTab = {
+  final Map<String, Widget> _viewMap = {
     'Recent Notes': const RecentNotes(),
     'All Notes': const AllNotes(),
   };
@@ -12,7 +12,7 @@ class MyNotePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: _viewTab.length,
+      length: _viewMap.length,
       child: Scaffold(
         body: NestedScrollView(
           headerSliverBuilder: (context, innerBoxIsScrolled) => [
@@ -33,7 +33,7 @@ class MyNotePage extends StatelessWidget {
               ),
               bottom: TabBar(
                 tabs: [
-                  for (final e in _viewTab.entries)
+                  for (final e in _viewMap.entries)
                     Tab(
                       child: Text(e.key),
                     ),
@@ -42,7 +42,7 @@ class MyNotePage extends StatelessWidget {
             ),
           ],
           body: TabBarView(
-            children: [for (final e in _viewTab.entries) e.value],
+            children: [for (final e in _viewMap.entries) e.value],
           ),
         ),
         floatingActionButton: FloatingActionButton(
