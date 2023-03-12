@@ -19,6 +19,7 @@ class NoteCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeData = Theme.of(context);
     return GestureDetector(
       onTap: editOnTap,
       child: Container(
@@ -31,7 +32,7 @@ class NoteCard extends StatelessWidget {
           left: 15,
         ),
         decoration: BoxDecoration(
-          color: AppColors.secondaryBackGround,
+          color: themeData.primaryColor,
           borderRadius: BorderRadius.circular(16),
           boxShadow: const [
             BoxShadow(
@@ -46,8 +47,8 @@ class NoteCard extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(
-                fontSize: 16,
+              style: AppThemes.josefinSansTextStyle.copyWith(
+                fontSize: 18,
                 fontWeight: FontWeight.w500,
               ),
               maxLines: 1,
@@ -60,7 +61,7 @@ class NoteCard extends StatelessWidget {
             ),
             Text(
               content,
-              style: const TextStyle(
+              style: AppThemes.josefinSansTextStyle.copyWith(
                 fontSize: 14,
               ),
               maxLines: 1,
@@ -71,8 +72,8 @@ class NoteCard extends StatelessWidget {
               children: [
                 Text(
                   time ?? '',
-                  style: const TextStyle(
-                    fontSize: 12,
+                  style: AppThemes.josefinSansTextStyle.copyWith(
+                    fontSize: 14,
                   ),
                 ),
                 IconButton(
@@ -80,6 +81,7 @@ class NoteCard extends StatelessWidget {
                   icon: const Icon(
                     Icons.delete_rounded,
                     size: 18,
+                    color: AppColors.accent,
                   ),
                 ),
               ],

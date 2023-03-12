@@ -10,8 +10,7 @@ class AppColors {
   static const primaryTextDark = Color(0xFFFFFFFF);
   static const secondaryText = Color(0xFF505050);
   static const secondaryTextDark = Color(0xFFC3C3C3);
-  static const primaryIcon = Color(0xFFEE4F00);
-  static const primaryIconDark = Color(0xFFEE4F00);
+  static const accent = Color(0xFFEE4F00);
   static const primaryIconBackGroundDark = Color(0xFF3B3B3B);
   static const secondaryIcon = Color(0xFF505050);
   static const secondaryIconDark = Color(0xFFC3C3C3);
