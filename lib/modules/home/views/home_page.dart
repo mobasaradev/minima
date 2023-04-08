@@ -1,7 +1,7 @@
-import 'package:counter_app/models/note.dart';
-import 'package:counter_app/modules/home/cubit/note/note_cubit.dart';
-import 'package:counter_app/modules/home/views/views.dart';
-import 'package:counter_app/utils/utils.dart';
+import 'package:minima_note_app/models/note.dart';
+import 'package:minima_note_app/modules/home/cubit/note/note_cubit.dart';
+import 'package:minima_note_app/modules/home/views/views.dart';
+import 'package:minima_note_app/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

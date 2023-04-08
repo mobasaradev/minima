@@ -1,4 +1,4 @@
-import 'package:counter_app/models/note.dart';
+import 'package:minima_note_app/models/note.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 

@@ -1,5 +1,5 @@
-import 'package:counter_app/minima_note_app.dart';
-import 'package:counter_app/modules/home/cubit/note/note_cubit.dart';
+import 'package:minima_note_app/minima_note_app.dart';
+import 'package:minima_note_app/modules/home/cubit/note/note_cubit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

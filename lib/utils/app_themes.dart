@@ -1,4 +1,4 @@
-import 'package:counter_app/utils/utils.dart';
+import 'package:minima_note_app/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
