@@ -5,8 +5,8 @@ import 'package:counter_app/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MyNotePage extends StatelessWidget {
-  MyNotePage({super.key});
+class HomePage extends StatelessWidget {
+  HomePage({super.key});
   final Map<String, Widget> _viewMap = {
     'Recent Notes': const RecentNotes(),
     'All Notes': const AllNotes(),
@@ -23,7 +23,7 @@ class MyNotePage extends StatelessWidget {
             return NestedScrollView(
               headerSliverBuilder: (context, innerBoxIsScrolled) => [
                 SliverAppBar(
-                  title: const Text("My Notes"),
+                  title: const Text("Daily Plan"),
                   centerTitle: true,
                   pinned: true,
                   floating: true,
@@ -50,9 +50,18 @@ class MyNotePage extends StatelessWidget {
                 ),
               ],
               body: notes.isEmpty
-                  ? const Center(
-                      child: FlutterLogo(size: 75),
-                    )
+                  ? Center(
+                      child: Column(
+                      children: [
+                        const SizedBox(height: 80),
+                        Image.asset("assets/images/add_notes.png"),
+                        Text(
+                          "Add your new plan",
+                          style: AppThemes.josefinSansTextStyle
+                              .copyWith(fontSize: 35),
+                        )
+                      ],
+                    ))
                   : TabBarView(
                       children: [for (final e in _viewMap.entries) e.value],
                     ),

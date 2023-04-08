@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.counter_app">
+    package="com.mobasaradev.minimanote">
    <application
-        android:label="counter_app"
+        android:label="MinimaNote"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

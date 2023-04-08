@@ -1,4 +1,4 @@
-import 'package:counter_app/Note_app.dart';
+import 'package:counter_app/minima_note_app.dart';
 import 'package:counter_app/modules/home/cubit/note/note_cubit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +16,7 @@ Future<void> main() async {
   runApp(
     BlocProvider<NoteCubit>(
       create: (context) => NoteCubit(),
-      child: const NoteApp(),
+      child: const MinimaNoteApp(),
     ),
   );
 }

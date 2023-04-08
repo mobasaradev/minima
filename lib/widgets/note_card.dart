@@ -34,11 +34,11 @@ class NoteCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: themeData.primaryColor,
           borderRadius: BorderRadius.circular(16),
-          boxShadow: const [
+          boxShadow: [
             BoxShadow(
-              color: AppColors.secondaryTextDark,
-              blurRadius: 5,
-              offset: Offset(0, 2),
+              color: AppColors.primaryIconBackGround.withOpacity(.5),
+              blurRadius: 3,
+              offset: const Offset(0, 1),
             )
           ],
         ),
@@ -80,8 +80,8 @@ class NoteCard extends StatelessWidget {
                   onPressed: removeOnPress,
                   icon: const Icon(
                     Icons.delete_rounded,
-                    size: 18,
-                    color: AppColors.accent,
+                    size: 20,
+                    // color: AppColors.primaryIconBackGround,
                   ),
                 ),
               ],
@@ -92,90 +92,3 @@ class NoteCard extends StatelessWidget {
     );
   }
 }
-
-// class NoteList extends StatelessWidget {
-//   const NoteList({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     NoteProvider noteProvider = Provider.of<NoteProvider>(context);
-//     return ListView.builder(
-//       itemCount: noteProvider.notes.length,
-//       itemBuilder: (context, index) {
-//         Note currentNote = noteProvider.notes[index];
-
-//         return GestureDetector(
-//           //update
-//           onTap: () {
-//             Navigator.push(
-//               context,
-//               CupertinoPageRoute(
-//                 builder: (context) => AddNewNote(
-//                   isUpdate: true,
-//                   note: currentNote,
-//                 ),
-//               ),
-//             );
-//           },
-//           child: Container(
-//             margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-//             padding: const EdgeInsets.only(
-//               top: 10,
-//               left: 10,
-//               right: 10,
-//               bottom: 0,
-//             ),
-//             decoration: BoxDecoration(
-//               color: NoteColor.secondaryBackGroundColor,
-//               borderRadius: BorderRadius.circular(6),
-//             ),
-//             child: Column(
-//               crossAxisAlignment: CrossAxisAlignment.start,
-//               children: [
-//                 Text(
-//                   currentNote.title,
-//                   style: const TextStyle(
-//                     color: NoteColor.primaryTextColor,
-//                     fontSize: 20,
-//                     fontWeight: FontWeight.w500,
-//                   ),
-//                   maxLines: 1,
-//                   overflow: TextOverflow.ellipsis,
-//                 ),
-//                 const SizedBox(height: 8),
-//                 Text(
-//                   currentNote.content,
-//                   style: const TextStyle(
-//                     fontSize: 18,
-//                     color: NoteColor.secondaryTextColor,
-//                   ),
-//                   maxLines: 2,
-//                   overflow: TextOverflow.ellipsis,
-//                 ),
-//                 Row(
-//                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                   children: [
-//                     const Text(
-//                       "12:00 pm",
-//                       style: TextStyle(
-//                         color: NoteColor.primaryTextColor,
-//                         fontSize: 16,
-//                       ),
-//                     ),
-//                     IconButton(
-//                       onPressed: () {
-//                         noteProvider.deleteNote(currentNote);
-//                       },
-//                       icon: const Icon(Icons.delete_rounded),
-//                     ),
-//                   ],
-//                 )
-//               ],
-//             ),
-//           ),
-//         );
-//       },
-//     );
-//   }
-// }
-
