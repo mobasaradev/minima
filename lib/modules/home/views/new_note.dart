@@ -1,7 +1,7 @@
-import 'package:minima_note_app/models/note.dart';
-import 'package:minima_note_app/modules/home/cubit/note/note_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:minima_note_app/models/note.dart';
+import 'package:minima_note_app/modules/home/cubit/note/note_cubit.dart';
 import 'package:uuid/uuid.dart';
 
 class NewNote extends StatefulWidget {
@@ -51,9 +51,9 @@ class _NewNoteState extends State<NewNote> {
           ),
         ),
         actions: [
-          const Icon(
-            Icons.attach_file,
-          ),
+          // const Icon(
+          //   Icons.attach_file,
+          // ),
           IconButton(
             onPressed: () {
               final note = Note(
