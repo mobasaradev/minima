@@ -28,3 +28,7 @@ A sleek and intuitive note-taking app that simplifies your digital organization.
 
 With this management approach, Minima Note achieves streamlined state management, reliable data storage, and a well-structured codebase. The combination of BLoC and Cubit enables reactive updates and easy testing, while HydratedCubit ensures data persistence. The MVC architecture promotes code organization and maintainability, making it easier to understand and modify the app's components as needed.
 
+#### Preview of Minima Note
+![minima_note](https://github.com/mobasaradev/minima_note/assets/110694484/892dbf35-48f3-4547-b805-a99f3f2dd07a)
+
+
