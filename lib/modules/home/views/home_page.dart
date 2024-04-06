@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:minima_note_app/models/note.dart';
 import 'package:minima_note_app/modules/home/cubit/note/note_cubit.dart';
 import 'package:minima_note_app/modules/home/views/views.dart';
 import 'package:minima_note_app/utils/utils.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -23,14 +23,15 @@ class HomePage extends StatelessWidget {
             return NestedScrollView(
               headerSliverBuilder: (context, innerBoxIsScrolled) => [
                 SliverAppBar(
-                  title: const Text("Daily Plan"),
+                  backgroundColor: AppColors.primaryBackGround,
+                  title: const Text("Minima Note"),
                   centerTitle: true,
                   pinned: true,
                   floating: true,
                   snap: true,
                   elevation: 0,
                   automaticallyImplyLeading: false,
-                  scrolledUnderElevation: 2.5,
+                  scrolledUnderElevation: 0,
                   shape: const Border(
                     bottom: BorderSide(
                       color: AppColors.transparent,
@@ -50,20 +51,41 @@ class HomePage extends StatelessWidget {
                 ),
               ],
               body: notes.isEmpty
-                  ? Center(
-                      child: Column(
+                  ? Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const SizedBox(height: 80),
-                        Image.asset("assets/images/add_notes.png"),
+                        Opacity(
+                          opacity: 0.8,
+                          child: Image.asset(
+                            "assets/images/add_notes.png",
+                            height: 300,
+                          ),
+                        ),
+                        const SizedBox(height: 20),
                         Text(
                           "Add your new plan",
-                          style: AppThemes.josefinSansTextStyle
-                              .copyWith(fontSize: 35),
+                          style: AppThemes.lightTheme.textTheme.titleMedium
+                              ?.copyWith(
+                            fontSize: 32,
+                            color: AppColors.secondaryBackGround,
+                            fontWeight: FontWeight.w700,
+                          ),
                         )
                       ],
-                    ))
-                  : TabBarView(
-                      children: [for (final e in _viewMap.entries) e.value],
+                    )
+                  : Container(
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(
+                            "assets/images/add_notes.png",
+                          ),
+                          opacity: .1,
+                        ),
+                      ),
+                      child: TabBarView(
+                        children: [for (final e in _viewMap.entries) e.value],
+                      ),
                     ),
             );
           },

@@ -1,5 +1,5 @@
-import 'package:minima_note_app/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:minima_note_app/utils/utils.dart';
 
 class NoteCard extends StatelessWidget {
   const NoteCard({
@@ -27,16 +27,16 @@ class NoteCard extends StatelessWidget {
           horizontal: 15,
           vertical: 7,
         ),
-        padding: const EdgeInsets.only(
-          top: 10,
-          left: 15,
+        padding: const EdgeInsets.symmetric(
+          vertical: 10,
+          horizontal: 15,
         ),
         decoration: BoxDecoration(
           color: themeData.primaryColor,
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: AppColors.primaryIconBackGround.withOpacity(.5),
+              color: AppColors.grey.withOpacity(.5),
               blurRadius: 3,
               offset: const Offset(0, 1),
             )
@@ -47,41 +47,46 @@ class NoteCard extends StatelessWidget {
           children: [
             Text(
               title,
-              style: AppThemes.josefinSansTextStyle.copyWith(
+              style: AppThemes.darkTheme.textTheme.titleMedium?.copyWith(
                 fontSize: 18,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w600,
+                color: AppColors.white,
               ),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
             const Divider(
-              height: 8,
+              height: 12,
+              color: AppColors.white,
               thickness: 1,
-              endIndent: 350,
+              endIndent: 300,
             ),
             Text(
               content,
-              style: AppThemes.josefinSansTextStyle.copyWith(
-                fontSize: 14,
+              style: AppThemes.darkTheme.textTheme.titleMedium?.copyWith(
+                fontSize: 16,
+                color: AppColors.white,
+                fontWeight: FontWeight.w600,
               ),
-              maxLines: 1,
+              maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
+            const SizedBox(height: 15),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   time ?? '',
-                  style: AppThemes.josefinSansTextStyle.copyWith(
+                  style: AppThemes.darkTheme.textTheme.titleMedium?.copyWith(
                     fontSize: 14,
+                    color: AppColors.white,
                   ),
                 ),
-                IconButton(
-                  onPressed: removeOnPress,
-                  icon: const Icon(
+                GestureDetector(
+                  onTap: removeOnPress,
+                  child: const Icon(
                     Icons.delete_rounded,
                     size: 20,
-                    // color: AppColors.primaryIconBackGround,
                   ),
                 ),
               ],

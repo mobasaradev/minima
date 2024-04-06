@@ -46,14 +46,11 @@ class _NewNoteState extends State<NewNote> {
             fontWeight: FontWeight.w500,
           ),
           decoration: const InputDecoration(
-            hintText: "Title",
+            hintText: "Give me a name",
             border: InputBorder.none,
           ),
         ),
         actions: [
-          // const Icon(
-          //   Icons.attach_file,
-          // ),
           IconButton(
             onPressed: () {
               final note = Note(
@@ -74,13 +71,18 @@ class _NewNoteState extends State<NewNote> {
         ],
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 15,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                "assets/images/add_notes.png",
+              ),
+              opacity: .2,
+            ),
           ),
           child: Column(
             children: [
-              // note
               Expanded(
                 child: TextField(
                   controller: _contentTextEditingController,
@@ -90,7 +92,7 @@ class _NewNoteState extends State<NewNote> {
                     fontSize: 16,
                   ),
                   decoration: const InputDecoration(
-                    hintText: "Note",
+                    hintText: "Hi! What's going on...",
                     border: InputBorder.none,
                   ),
                 ),
