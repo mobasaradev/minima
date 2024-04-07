@@ -1,0 +1,40 @@
+name: minima
+description: "A new Flutter project."
+publish_to: 'none' 
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.1 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.6
+  uuid: ^4.3.3
+  flutter_bloc: ^8.1.5
+  equatable: ^2.0.5
+  hydrated_bloc: ^9.1.5
+  path_provider: ^2.1.2
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/fonts/
+
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/MontserratAlternates-Bold.ttf
+        - asset: assets/fonts/MontserratAlternates-Medium.ttf
+        - asset: assets/fonts/MontserratAlternates-Regular.ttf
+        - asset: assets/fonts/MontserratAlternates-SemiBold.ttf
